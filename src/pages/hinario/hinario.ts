@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the HinarioPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Observable } from 'rxjs/Observable';
+import { HinosFirebaseProvider } from './../../providers/hinos-firebase/hinos-firebase';
 
 @IonicPage()
 @Component({
@@ -14,8 +9,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'hinario.html',
 })
 export class HinarioPage {
+  hinos: Observable<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private provider: HinosFirebaseProvider) {
+    this.hinos = this.provider.getAll();
   }
 
   ionViewDidLoad() {

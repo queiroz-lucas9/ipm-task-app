@@ -17,6 +17,10 @@ import { CancioneiroPage } from '../pages/cancioneiro/cancioneiro';
 import { EventosPage } from '../pages/eventos/eventos';
 import { PedidosPage } from '../pages/pedidos/pedidos';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/database';
+import { HinosFirebaseProvider } from '../providers/hinos-firebase/hinos-firebase';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -33,6 +37,15 @@ import { PedidosPage } from '../pages/pedidos/pedidos';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyBrS-mHNvIA6FQh73M17ZdD3KsSPzQ80Qo",
+      authDomain: "ipm-task-app.firebaseapp.com",
+      databaseURL: "https://ipm-task-app.firebaseio.com",
+      projectId: "ipm-task-app",
+      storageBucket: "ipm-task-app.appspot.com",
+      messagingSenderId: "272319172615"
+    }),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +62,8 @@ import { PedidosPage } from '../pages/pedidos/pedidos';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HinosFirebaseProvider
   ]
 })
 export class AppModule {}
