@@ -12,7 +12,7 @@ export class HinarioPage {
   hinos: Observable<any>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private provider: HinosFirebaseProvider) {
-    this.hinos = this.provider.getAll();
+    this.hinos = this.provider.get('1TYCXnknTYKECqLOEInX');
   }
 
   ionViewDidLoad() {

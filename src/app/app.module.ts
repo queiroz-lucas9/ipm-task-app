@@ -18,7 +18,7 @@ import { EventosPage } from '../pages/eventos/eventos';
 import { PedidosPage } from '../pages/pedidos/pedidos';
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from '../../node_modules/angularfire2/database';
+import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestore';
 import { HinosFirebaseProvider } from '../providers/hinos-firebase/hinos-firebase';
 
 @NgModule({
@@ -45,7 +45,7 @@ import { HinosFirebaseProvider } from '../providers/hinos-firebase/hinos-firebas
       storageBucket: "ipm-task-app.appspot.com",
       messagingSenderId: "272319172615"
     }),
-    AngularFireDatabaseModule
+    AngularFirestoreModule.enablePersistence()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
