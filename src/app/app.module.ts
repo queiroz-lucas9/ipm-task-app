@@ -19,7 +19,6 @@ import { PedidosPage } from '../pages/pedidos/pedidos';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestore';
-import { HinosFirebaseProvider } from '../providers/hinos-firebase/hinos-firebase';
 
 @NgModule({
   declarations: [
@@ -63,7 +62,6 @@ import { HinosFirebaseProvider } from '../providers/hinos-firebase/hinos-firebas
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HinosFirebaseProvider
   ]
 })
 export class AppModule {}
