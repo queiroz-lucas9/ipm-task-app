@@ -16,6 +16,7 @@ import { HinarioPage } from '../pages/hinario/hinario';
 import { CancioneiroPage } from '../pages/cancioneiro/cancioneiro';
 import { EventosPage } from '../pages/eventos/eventos';
 import { PedidosPage } from '../pages/pedidos/pedidos';
+import { ModalHinoPage } from '../pages/hinario/modal-hino/modal-hino';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestore';
@@ -30,7 +31,8 @@ import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestor
     HinarioPage,
     CancioneiroPage,
     EventosPage,
-    PedidosPage
+    PedidosPage,
+    ModalHinoPage
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,8 @@ import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestor
     HinarioPage,
     CancioneiroPage,
     EventosPage,
-    PedidosPage
+    PedidosPage,
+    ModalHinoPage
   ],
   providers: [
     StatusBar,

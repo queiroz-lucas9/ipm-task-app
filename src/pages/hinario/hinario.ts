@@ -16,6 +16,10 @@ import {
   CollectionReference
 } from 'angularfire2/firestore';
 
+import { ModalController } from 'ionic-angular';
+import { ModalHinoPage } from '../hinario/modal-hino/modal-hino';
+
+
 
 @IonicPage()
 @Component({
@@ -31,8 +35,9 @@ export class HinarioPage {
     public navParams: NavParams,
     private db: AngularFirestore,
     private _loadingCtrl: LoadingController,
-
-  ) { }
+    public modalCtrl: ModalController
+  ) {
+   }
 
   ionViewWillEnter() {
     let loading = this._loadingCtrl.create({
@@ -48,4 +53,9 @@ export class HinarioPage {
     this.hinos = this.hinosCollecion.valueChanges()
     loading.dismiss();
   }
+
+  presentModal() {
+    let myModal = this.modalCtrl.create(ModalHinoPage);
+    myModal.present();
+  }  
 }

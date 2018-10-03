@@ -10,12 +10,11 @@
 
 <ion-content padding>
  
+  <ion-searchbar (input)="getItems($event)" placeholder="Buscar hino"></ion-searchbar>
   <ion-list>
     <ion-item-sliding *ngFor="let hino of hinos | async">
-      <ion-item>
-        <h1>{{ hino.numero }}</h1>
-        <p>{{ hino.titulo }}</p>
-        <p>{{ hino.letra }}</p>
+      <ion-item (click)="presentModal()">
+        <h1>{{ hino.numero }} {{ hino.titulo }}</h1>
       </ion-item>
     </ion-item-sliding>
   </ion-list>

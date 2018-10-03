@@ -15,11 +15,12 @@
 
 
 <ion-content padding>
+    <ion-searchbar (input)="getItems($event)" placeholder="Buscar cântico"></ion-searchbar>
 
     <ion-list>
         <button ion-item *ngFor="let cantico of canticos | async">
             <h1>{{ cantico.numero }} {{ cantico.titulo }}</h1>
         </button>  
     </ion-list>
-    
+
 </ion-content>
