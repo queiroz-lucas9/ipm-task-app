@@ -15,7 +15,6 @@ import {
   AngularFirestoreCollection,
   CollectionReference
 } from 'angularfire2/firestore';
-import { SelecionaHinoPage } from '../seleciona-hino/seleciona-hino';
 
 
 @IonicPage()

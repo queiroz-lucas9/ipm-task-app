@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  LoadingController
+} from 'ionic-angular';
 
-/**
- * Generated class for the CancioneiroPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Cantico } from '../../models/cantico.model';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  CollectionReference
+} from 'angularfire2/firestore';
 
 @IonicPage()
 @Component({
@@ -15,11 +23,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CancioneiroPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  canticosCollecion: AngularFirestoreCollection<Cantico>;
+  canticos: Observable<Cantico[]>;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CancioneiroPage');
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private db: AngularFirestore,
+    private _loadingCtrl: LoadingController,
+
+  ) { }
+
+  ionViewWillEnter() {
+    let loading = this._loadingCtrl.create({
+      content: 'Carregando Cânticos...'
+    });
+    loading.present();
+
+    this.canticosCollecion = this.db.collection<Cantico>('/canticos',
+      (ref: CollectionReference) => ref
+        .orderBy('numero', 'asc')
+        .orderBy('titulo', 'asc'));
+
+    this.canticos = this.canticosCollecion.valueChanges()
+    loading.dismiss();
   }
 
 }

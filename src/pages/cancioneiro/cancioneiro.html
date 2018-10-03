@@ -16,4 +16,10 @@
 
 <ion-content padding>
 
+    <ion-list>
+        <button ion-item *ngFor="let cantico of canticos | async">
+            <h1>{{ cantico.numero }} {{ cantico.titulo }}</h1>
+        </button>  
+    </ion-list>
+    
 </ion-content>
