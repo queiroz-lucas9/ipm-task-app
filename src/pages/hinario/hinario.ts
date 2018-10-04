@@ -50,8 +50,41 @@ export class HinarioPage {
         .orderBy('numero', 'asc')
         .orderBy('titulo', 'asc'));
 
-    this.hinos = this.hinosCollecion.valueChanges()
+    this.hinos = this.hinosCollecion.valueChanges();
     loading.dismiss();
+  }
+
+  getItems(searchbar) {
+    // set q to the value of the searchbar
+    var q = searchbar.srcElement.value;
+  
+    // if the value is an empty string don't filter the items
+    if (!q) {
+      return;
+    }
+
+    console.log(q);
+
+    if(parseInt(q))
+    {
+      this.hinosCollecion = this.db.collection<Hino>('/hinos', ref => {
+        // Compose a query using multiple .where() methods
+        return ref
+                //.where('numero', '==', q)
+                .orderBy('numero')
+                .startAt(q).endAt(q +'\uf8ff')
+      });
+      this.hinos = this.hinosCollecion.valueChanges();
+    }
+    else {
+      this.hinosCollecion = this.db.collection<Hino>('/hinos', ref => {
+        // Compose a query using multiple .where() methods
+        return ref
+                .orderBy('titulo')
+                .startAt(q).endAt(q +'\uf8ff')
+      });
+      this.hinos = this.hinosCollecion.valueChanges();
+    }
   }
 
   presentModal() {

@@ -19,7 +19,7 @@ export class ModalHinoPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ModalHinoPage');
+    console.log(this.navParams.get('uid'));
   }
 
 }
