@@ -9,5 +9,8 @@ import { BibliaPage } from './biblia';
   imports: [
     IonicPageModule.forChild(BibliaPage),
   ],
+  exports: [
+    BibliaPage
+  ]
 })
 export class BibliaPageModule {}

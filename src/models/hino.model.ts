@@ -1,6 +1,6 @@
 export interface Hino {
     uid: string,
     titulo: string,
-    numero: number,
+    numero: string,
     letra:  string
 }

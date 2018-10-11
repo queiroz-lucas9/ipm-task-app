@@ -1,30 +1,19 @@
-<!--
-  Generated template for the ModalHinoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title></ion-title>
-    <ion-buttons back>
-        <button ion-button icon-only>
-          <ion-icon name="arrow-back"></ion-icon>
-        </button>
+    <ion-title>{{ hino.numero + ' - ' + hino.titulo}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
     </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-    <ion-card>
-        <ion-card-header>
-          <h1>001 - TÍTULO</h1>
-        </ion-card-header>
-        <ion-card-content>
-          The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-        </ion-card-content>
-      </ion-card>
+<ion-content>
+  <ion-card #popoverContent padding class="popover-page">
+    <ion-card-content #popoverText class="text-to-change">
+      <p>{{ hino.letra }}</p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

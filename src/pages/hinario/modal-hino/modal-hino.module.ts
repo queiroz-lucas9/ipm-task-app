@@ -9,5 +9,8 @@ import { ModalHinoPage } from './modal-hino';
   imports: [
     IonicPageModule.forChild(ModalHinoPage),
   ],
+  exports: [
+    ModalHinoPage,
+  ],
 })
 export class ModalHinoPageModule {}

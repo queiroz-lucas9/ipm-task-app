@@ -1,9 +1,3 @@
-<!--
-  Generated template for the CancioneiroPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar color='primary'>
     <button ion-button menuToggle>
@@ -15,12 +9,12 @@
 
 
 <ion-content padding>
-    <ion-searchbar (input)="getItems($event)" placeholder="Buscar cântico"></ion-searchbar>
+    <ion-searchbar  placeholder="Buscar cântico"></ion-searchbar>
 
     <ion-list>
-        <button ion-item *ngFor="let cantico of canticos | async">
-            <h1>{{ cantico.numero }} {{ cantico.titulo }}</h1>
-        </button>  
+        <button ion-item *ngFor="let cantico of canticos$ | async" (click)="presentModal(cantico)">
+            <h2>{{ cantico.numero + ' - ' + cantico.titulo }}</h2>
+        </button>
     </ion-list>
 
 </ion-content>

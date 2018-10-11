@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ModalHinoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Hino } from './../../../models/hino.model';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  PopoverController
+} from 'ionic-angular';
+import { PopoverComponent } from '../../../components/popover/popover';
 
 @IonicPage()
 @Component({
@@ -14,12 +14,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'modal-hino.html',
 })
 export class ModalHinoPage {
+  @ViewChild('popoverContent', { read: ElementRef }) content: ElementRef;
+  @ViewChild('popoverText', { read: ElementRef }) text: ElementRef;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public hino: Hino;
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public popoverCtrl: PopoverController
+  ) {
+    this.hino = this.navParams.get('hinoSelecionado');
   }
 
-  ionViewDidLoad() {
-    console.log(this.navParams.get('uid'));
-  }
+  ionViewDidLoad() { }
 
+  presentPopover(ev) {
+    let popover = this.popoverCtrl.create(PopoverComponent, {
+      contentEle: this.content.nativeElement,
+      textEle: this.text.nativeElement
+    });
+    popover.present({
+      ev: ev
+    });
+  }
 }

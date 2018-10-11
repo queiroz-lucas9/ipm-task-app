@@ -9,5 +9,8 @@ import { HinarioPage } from './hinario';
   imports: [
     IonicPageModule.forChild(HinarioPage),
   ],
+  exports: [
+    HinarioPage
+  ]
 })
 export class HinarioPageModule {}

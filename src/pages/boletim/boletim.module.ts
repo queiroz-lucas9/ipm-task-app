@@ -9,5 +9,8 @@ import { BoletimPage } from './boletim';
   imports: [
     IonicPageModule.forChild(BoletimPage),
   ],
+  exports: [
+    BoletimPage
+  ]
 })
 export class BoletimPageModule {}
