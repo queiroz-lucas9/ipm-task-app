@@ -1,23 +1,14 @@
 import { Component } from '@angular/core';
-import { take } from 'rxjs/operators/take';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  LoadingController,
-  AlertController
-} from 'ionic-angular';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-  CollectionReference
-} from 'angularfire2/firestore';
-import { FirebaseError } from 'firebase';
+import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-angular';
 
-import { ModalHinoPage } from '../hinario/modal-hino/modal-hino';
-import { Hino } from '../../models/hino.model';
+import { AngularFirestore, CollectionReference, AngularFirestoreCollection } from '@angular/fire/firestore';
+
+import { Hino } from './model/hino.model';
+import { HinarioModalPage } from './hinario-modal/hinario-modal';
+
+import { Subject } from 'rxjs/Subject';
+import { Observable } from 'rxjs/Observable';
+import { take } from 'rxjs/operators';
 
 @IonicPage()
 @Component({
@@ -26,83 +17,69 @@ import { Hino } from '../../models/hino.model';
 })
 export class HinarioPage {
 
-  hinosCollecion: AngularFirestoreCollection<Hino>;
+  hinosCollection: AngularFirestoreCollection<Hino>;
   hinos$: Observable<Hino[]>;
+
+  startAt = new Subject();
+  endAt = new Subject();
+
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private db: AngularFirestore,
     private _loadingCtrl: LoadingController,
-    private _alertCtrl: AlertController,
+
   ) { }
 
-  ionViewWillEnter(){
+  ionViewDidEnter() {
+    this.getAllHinos();
+  }
 
-    let loading = this._loadingCtrl.create({
-      content: 'Carregando Hinos...'
-    });
-    loading.present();
+  search(event) {
+    var q = event.target.value.toString();
 
-    this.hinosCollecion = this.db.collection<Hino>('/hinos',
+    if (!isNaN(q)) {
+      var texto = 'numero';
+    } else {
+      texto = 'titulo';
+    }
+
+    if (q != '') {
+      this.hinosCollection = this.db.collection<Hino>('/hinos',
+        (ref: CollectionReference) => ref
+          .orderBy(texto, 'asc')
+          .startAt(q)
+          .endAt(q + '\uf8ff'));
+      this.hinos$ = this.hinosCollection.valueChanges();
+      console.log(q);
+    } else {
+      this.getAllHinos();
+    }
+  }
+
+  getAllHinos() {
+    let loading = this._loadingCtrl
+      .create({
+        content: 'Carregando Hinos...'
+      });
+
+    if (!this.hinos$) {
+      loading.present();
+    }
+
+    this.hinosCollection = this.db.collection<Hino>('/hinos',
       (ref: CollectionReference) => ref
         .orderBy('numero', 'asc')
         .orderBy('titulo', 'asc'));
 
-    this.hinos$ = this.hinosCollecion.valueChanges();
-    this.hinos$
-      .pipe(take(1))
-      .subscribe(() => {
-        loading.dismiss()
-      },
-        (err: FirebaseError) => {
-          loading.dismiss();
-          this._alertCtrl.create({
-            title: 'Falha na conexão :(',
-            subTitle: 'Não possivel carregar a lista de hinos. Tente novamente mais tarde!',
-            buttons: [
-              { text: 'Ok' }
-            ]
-          }).present();
-        }
-      );
-  }
-
-  getItems(searchbar) {
-    // set q to the value of the searchbar
-    var q = searchbar.srcElement.value;
-
-    // if the value is an empty string don't filter the items
-    if (!q) {
-      return;
-    }
-
-    console.log(q);
-
-    if (parseInt(q)) {
-      this.hinosCollecion = this.db.collection<Hino>('/hinos', ref => {
-        // Compose a query using multiple .where() methods
-        return ref
-          //.where('numero', '==', q)
-          .orderBy('numero', 'asc')
-          .startAt(q).endAt(q + '\uf8ff')
-      });
-      this.hinos$ = this.hinosCollecion.valueChanges();
-    }
-    else {
-      this.hinosCollecion = this.db.collection<Hino>('/hinos', ref => {
-        // Compose a query using multiple .where() methods
-        return ref
-          .orderBy('titulo', 'asc')
-          .startAt(q).endAt(q + '\uf8ff')
-      });
-      this.hinos$ = this.hinosCollecion.valueChanges();
-    }
-
+    this.hinos$ = this.hinosCollection.valueChanges();
+    this.hinos$.pipe(take(1))
+      .subscribe(() => { loading.dismiss() });
   }
 
   presentModal(hino: Hino) {
-    this.navCtrl.push(ModalHinoPage.name, {
+    this.navCtrl.push(HinarioModalPage.name, {
       hinoSelecionado: hino
     });
   }

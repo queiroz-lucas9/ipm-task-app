@@ -1,4 +1,3 @@
-import { Hino } from './../../../models/hino.model';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import {
   IonicPage,
@@ -7,23 +6,26 @@ import {
   PopoverController
 } from 'ionic-angular';
 import { PopoverComponent } from '../../../components/popover/popover';
+import { Cantico } from '../model/cantico.model';
+
 
 @IonicPage()
 @Component({
-  selector: 'page-modal-hino',
-  templateUrl: 'modal-hino.html',
+  selector: 'page-modal-cancioneiro',
+  templateUrl: 'modal-cancioneiro.html',
 })
-export class ModalHinoPage {
+export class ModalCancioneiroPage {
+
   @ViewChild('popoverContent', { read: ElementRef }) content: ElementRef;
   @ViewChild('popoverText', { read: ElementRef }) text: ElementRef;
 
-  public hino: Hino;
+  public cantico: Cantico;
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public popoverCtrl: PopoverController
   ) {
-    this.hino = this.navParams.get('hinoSelecionado');
+    this.cantico = this.navParams.get('canticoSelecionado');
   }
 
   ionViewDidLoad() { }

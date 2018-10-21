@@ -16,6 +16,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestore';
 
 
+
 @NgModule({
   declarations: [
     MyApp,

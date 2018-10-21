@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ModalHinoPage } from './modal-hino';
+import { HinarioModalPage } from './hinario-modal';
 
 @NgModule({
   declarations: [
-    ModalHinoPage,
+    HinarioModalPage
   ],
   imports: [
-    IonicPageModule.forChild(ModalHinoPage),
+    IonicPageModule.forChild(HinarioModalPage),
   ],
   exports: [
-    ModalHinoPage,
+    HinarioModalPage
   ],
 })
 export class ModalHinoPageModule {}

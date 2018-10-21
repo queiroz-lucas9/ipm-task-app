@@ -15,9 +15,11 @@ import {
   CollectionReference
 } from 'angularfire2/firestore';
 import { FirebaseError } from 'firebase';
-
+import { Cantico } from './model/cantico.model';
 import { ModalCancioneiroPage } from './modal-cancioneiro/modal-cancioneiro';
-import { Cantico } from '../../models/cantico.model';
+
+
+
 
 @IonicPage()
 @Component({
