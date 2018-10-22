@@ -2,12 +2,20 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { HinarioPage } from './hinario';
 
+
+
 @NgModule({
   declarations: [
-    HinarioPage,
+    HinarioPage
   ],
   imports: [
-    IonicPageModule.forChild(HinarioPage),
+    IonicPageModule.forChild(HinarioPage)
   ],
+  exports: [
+    HinarioPage
+  ],
+  providers: [
+
+  ]
 })
-export class HinarioPageModule {}
+export class HinarioPageModule { }

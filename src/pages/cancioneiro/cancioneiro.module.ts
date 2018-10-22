@@ -9,5 +9,8 @@ import { CancioneiroPage } from './cancioneiro';
   imports: [
     IonicPageModule.forChild(CancioneiroPage),
   ],
+  exports: [
+    CancioneiroPage
+  ]
 })
 export class CancioneiroPageModule {}

@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 
 import { BoletimPage } from '../pages/boletim/boletim';
 import { BibliaPage } from '../pages/biblia/biblia';
@@ -24,18 +23,21 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    this.initializeApp();
+  constructor(public platform: Platform,
+              public statusBar: StatusBar,
+              public splashScreen: SplashScreen
+              ) {
+              this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'Boletim', component: BoletimPage },
-      { title: 'Bíblia', component: BibliaPage },
-      { title: 'Hinário', component: HinarioPage },
-      { title: 'Cancioneiro', component: CancioneiroPage },
-      { title: 'Eventos', component: EventosPage },
-      { title: 'Pedidos de oração', component: PedidosPage }
+      { title: 'Boletim', component: BoletimPage.name },
+      { title: 'Bíblia', component: BibliaPage.name },
+      { title: 'Hinário', component: HinarioPage.name },
+      { title: 'Cancioneiro', component: CancioneiroPage.name },
+      { title: 'Eventos', component: EventosPage.name },
+      { title: 'Pedidos de oração', component: PedidosPage.name }
     ];
 
   }

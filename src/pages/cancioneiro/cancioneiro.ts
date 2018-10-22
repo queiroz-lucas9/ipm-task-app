@@ -1,20 +1,25 @@
 import { Component } from '@angular/core';
+import { take } from 'rxjs/operators/take';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 import {
   IonicPage,
   NavController,
   NavParams,
-  LoadingController
+  LoadingController,
+  AlertController
 } from 'ionic-angular';
-
-import { Cantico } from '../../models/cantico.model';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
 import {
   AngularFirestore,
   AngularFirestoreCollection,
   CollectionReference
 } from 'angularfire2/firestore';
+import { FirebaseError } from 'firebase';
+import { Cantico } from './model/cantico.model';
+import { ModalCancioneiroPage } from './modal-cancioneiro/modal-cancioneiro';
+
+
+
 
 @IonicPage()
 @Component({
@@ -24,14 +29,14 @@ import {
 export class CancioneiroPage {
 
   canticosCollecion: AngularFirestoreCollection<Cantico>;
-  canticos: Observable<Cantico[]>;
+  canticos$: Observable<Cantico[]>;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private db: AngularFirestore,
     private _loadingCtrl: LoadingController,
-
+    private _alertCtrl: AlertController
   ) { }
 
   ionViewWillEnter() {
@@ -45,8 +50,28 @@ export class CancioneiroPage {
         .orderBy('numero', 'asc')
         .orderBy('titulo', 'asc'));
 
-    this.canticos = this.canticosCollecion.valueChanges()
-    loading.dismiss();
+    this.canticos$ = this.canticosCollecion.valueChanges();
+    this.canticos$
+      .pipe(take(1))
+      .subscribe(() => {
+        loading.dismiss()
+      },
+        (err: FirebaseError) => {
+          loading.dismiss();
+          this._alertCtrl.create({
+            title: 'Falha na conexão :(',
+            subTitle: 'Não possivel carregar a lista de canticos. Tente novamente mais tarde!',
+            buttons: [
+              { text: 'Ok' }
+            ]
+          }).present();
+        }
+      );
   }
 
+  presentModal(cantico: Cantico) {
+    this.navCtrl.push(ModalCancioneiroPage.name, {
+      canticoSelecionado: cantico
+    });
+  }
 }
