@@ -3,7 +3,7 @@ import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-an
 
 import { AngularFirestore, CollectionReference, AngularFirestoreCollection } from '@angular/fire/firestore';
 
-import { Hino } from './model/hino.model';
+import { Hino } from '../../model/hino.model';
 import { HinarioModalPage } from './hinario-modal/hinario-modal';
 
 import { Subject } from 'rxjs/Subject';

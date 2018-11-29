@@ -12,7 +12,7 @@ export const environment = {
     storageBucket: 'ipm-task-app.appspot.com',
     messagingSenderId: '272319172615'
   }
-};
+};  
 
 /*
  * For easier debugging in development mode, you can import the following file

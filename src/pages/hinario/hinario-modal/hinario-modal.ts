@@ -6,7 +6,7 @@ import {
   PopoverController
 } from 'ionic-angular';
 
-import { Hino } from '../model/hino.model';
+import { Hino } from '../../../model/hino.model';
 import { PopoverComponent } from '../../../components/popover/popover';
 
 @IonicPage()
