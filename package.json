@@ -11,6 +11,7 @@
     "lint": "ionic-app-scripts lint"
   },
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.5",
     "@angular/animations": "5.2.11",
     "@angular/common": "5.2.11",
     "@angular/compiler": "5.2.11",
@@ -38,6 +39,7 @@
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-whitelist": "^1.3.3",
     "firebase": "^5.5.2",
+    "ion-affix": "^2.0.0",
     "ionic-angular": "3.9.2",
     "ionicons": "3.0.0",
     "platform": "1.3.5",

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color='primary'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Devocionais</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+    <ion-card *ngFor="let d of devocionais$ | async" (click)="presentModal(d)">
+      <img src="{{d.img}}"/>
+      <div class="card-title">{{ d.titulo }}</div>
+      <div class="card-subtitle">{{ d.descricao | slice:0:97 }}...</div>
+    </ion-card>
+
+  
+  </ion-content>
+

@@ -6,11 +6,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 
 import { BoletimPage } from '../pages/boletim/boletim';
-import { BibliaPage } from '../pages/biblia/biblia';
 import { HinarioPage } from '../pages/hinario/hinario';
 import { CancioneiroPage } from '../pages/cancioneiro/cancioneiro';
 import { EventosPage } from '../pages/eventos/eventos';
 import { PedidosPage } from '../pages/pedidos/pedidos';
+import { DevocionaisPage } from '../pages/devocionais/devocionais';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(public platform: Platform,
               public statusBar: StatusBar,
@@ -31,13 +31,14 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'Boletim', component: BoletimPage.name },
-      { title: 'Bíblia', component: BibliaPage.name },
-      { title: 'Hinário', component: HinarioPage.name },
-      { title: 'Cancioneiro', component: CancioneiroPage.name },
-      { title: 'Eventos', component: EventosPage.name },
-      { title: 'Pedidos de oração', component: PedidosPage.name }
+      { title: 'Home', component: HomePage, icon: 'home' },
+      { title: 'Boletim', component: BoletimPage.name, icon: 'paper' },
+      //{ title: 'Bíblia', component: BibliaPage.name, icon: 'book' },
+      { title: 'Hinário', component: HinarioPage.name, icon: 'musical-notes' },
+      { title: 'Cancioneiro', component: CancioneiroPage.name, icon: 'musical-note' },
+      { title: 'Eventos', component: EventosPage.name, icon: 'calendar' },
+      { title: 'Pedidos de oração', component: PedidosPage.name, icon: 'chatbubbles' },
+      { title: 'Devocionais', component: DevocionaisPage.name, icon: 'book' }
     ];
 
   }

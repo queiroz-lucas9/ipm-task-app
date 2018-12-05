@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { EventosPage } from './eventos';
 
@@ -9,6 +9,7 @@ import { EventosPage } from './eventos';
   imports: [
     IonicPageModule.forChild(EventosPage),
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [
     EventosPage
   ]

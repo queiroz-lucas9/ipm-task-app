@@ -6,7 +6,7 @@ import {
   PopoverController
 } from 'ionic-angular';
 import { PopoverComponent } from '../../../components/popover/popover';
-import { Cantico } from '../model/cantico.model';
+import { Cantico } from '../../../model/cantico.model';
 
 
 @IonicPage()
