@@ -7,14 +7,33 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="card-background-page">
-
-    <ion-card *ngFor="let d of devocionais$ | async" (click)="presentModal(d)">
-      <img src="{{d.img}}"/>
-      <div class="card-title">{{ d.titulo }}</div>
-      <div class="card-subtitle">{{ d.descricao | slice:0:97 }}...</div>
-    </ion-card>
-
-  
+  <ion-content elastic-header>
+    <!-- <div background-size id="elastic-header" [ngStyle]="{'background-image': 'url(assets/images/background-small/pray.jpg)'}">
+      <div parallax-header>
+        <h2 no-margin parallax-subtitle>Devocionais</h2>
+        <h2 no-margin parallax-title>Algumas reflexões para a sua vida</h2>
+      </div>
+    </div> -->
+    <!--Content-->
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col col-12>
+          <ion-list no-margin>
+            <ion-item item-bcg border no-lines *ngFor="let d of devocionais$ | async" (click)="presentModal(d)">
+              <!--Content Avatar-->
+              <ion-thumbnail item-start>
+                <img [src]="d.img" alt="{{d.img}}">
+              </ion-thumbnail>
+              <!--Content Title-->
+              <h2 no-margin item-title>{{d.titulo}}</h2>
+              <!--Content Subtitle-->
+              <h3 item-subtitle text-wrap>{{d.descricao | slice:0:95}}...</h3>
+              <!--Content Badge-->
+              <!-- <ion-badge badge-light item-end>Mais</ion-badge> -->
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-content>
-
+  

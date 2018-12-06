@@ -25,6 +25,7 @@
       </ion-avatar>
       <!-- Avatar Title -->
       <h2 item-subtitle>{{data.subtitle}}</h2>
+      <h3 item-subtitle>{{data.data.toDate() | date: 'dd/MM/yy HH:mm'}}</h3>
       <!--- Button Share-->
       <button item-end ion-button button-action-shit (click)="onEvent('onShare', data)">
         <ion-icon name="{{data.shareIcon}}"></ion-icon>

@@ -5,11 +5,11 @@
     </button>
     <ion-title>Hinário</ion-title>
   </ion-navbar>
-  <ion-searchbar (ionInput)="search($event)" placeholder="Buscar hino">
-  </ion-searchbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+    <ion-searchbar (ionInput)="search($event)" placeholder="Buscar hino">
+      </ion-searchbar>
   <ion-list>
     <ion-item *ngFor="let hino of hinos$ | async" (click)="presentModal(hino)">
       <h2>{{ hino.numero + ' - ' + hino.titulo}}</h2>

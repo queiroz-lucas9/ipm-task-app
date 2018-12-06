@@ -19,17 +19,21 @@ export class DevocionaisPage {
 
   devocionaisCollection: AngularFirestoreCollection<Devocional>;
   devocionais$: Observable<Devocional[]>;
-  params: any = {};
+  active: boolean;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private db: AngularFirestore,
     private _loadingCtrl: LoadingController
-  ) {}
+  ) { }
 
   ionViewDidEnter() {
     this.getAllDevocionais();
+  }
+
+  isClassActive() {
+    return this.active;
   }
 
   getAllDevocionais(){
@@ -44,7 +48,7 @@ export class DevocionaisPage {
 
     this.devocionaisCollection = this.db.collection<Devocional>('/devocionais',
       (ref: CollectionReference) => ref
-        .orderBy('data', 'asc')
+        .orderBy('data', 'desc')
         .orderBy('titulo', 'asc'));
 
     this.devocionais$ = this.devocionaisCollection.valueChanges();

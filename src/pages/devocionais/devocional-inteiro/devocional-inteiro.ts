@@ -29,6 +29,7 @@ export class DevocionalInteiroPage {
         "title" : this.devocional.destaque
       } ],
       "shareIcon" : "more",
+      "data" : this.devocional.data,
       "subtitle" : this.devocional.autor,
       "title" : this.devocional.titulo
     }

@@ -67,7 +67,7 @@ export class EventosPage {
           duration: 3000
         });
         toast.present();
-        this.showBut = false;
+        //this.showBut = false;
       }, err => {
         console.log('err: ', err);
         const toast = this.toastCtrl.create({

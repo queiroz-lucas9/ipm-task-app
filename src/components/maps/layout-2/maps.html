@@ -1,17 +1,7 @@
-<!-- Thema Google Maps - Gmaps + About Us-->
-<ion-header>
-    <ion-navbar>
-        <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-        <ion-title *ngIf="data != null">{{data.headerTitle}}</ion-title>
-    </ion-navbar>
-</ion-header>
+
 <!-- Content -->
 <ion-content>
-    <div header-section *ngIf="data != null">
-        <h1 header-title no-margin padding-left text-wrap>{{data.title}}</h1>
-    </div>
+    
     <ion-grid no-padding *ngIf="data != null">
         <ion-row>
             <!---About Name-->
@@ -24,7 +14,6 @@
             <ion-col col-12 map-content transparent>
                 <ion-item-group>
                     <ion-item-divider no-lines>
-                        <h2 maps-description-title text-wrap margin-bottom>{{data.contentTitle}}</h2>
                         <p maps-description text-wrap>{{data.contentDescription}}</p>
                     </ion-item-divider>
                     <!--Info Location-->
@@ -36,6 +25,7 @@
                     <ion-item border>
                         <ion-icon icon-medium color='primary' name="{{data.icon}}" item-start></ion-icon>
                         <h2 no-paddnig>{{data.time}}</h2>
+                        <h2 no-paddnig>{{data.time1}}</h2>
                     </ion-item>
                     <!--Info Phone-->
                     <ion-item border>

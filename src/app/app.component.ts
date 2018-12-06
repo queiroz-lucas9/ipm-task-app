@@ -11,7 +11,7 @@ import { CancioneiroPage } from '../pages/cancioneiro/cancioneiro';
 import { EventosPage } from '../pages/eventos/eventos';
 import { PedidosPage } from '../pages/pedidos/pedidos';
 import { DevocionaisPage } from '../pages/devocionais/devocionais';
-
+import { SobrePage } from '../pages/sobre/sobre';
 
 @Component({
   templateUrl: 'app.html'
@@ -38,7 +38,8 @@ export class MyApp {
       { title: 'Cancioneiro', component: CancioneiroPage.name, icon: 'musical-note' },
       { title: 'Eventos', component: EventosPage.name, icon: 'calendar' },
       { title: 'Pedidos de oração', component: PedidosPage.name, icon: 'chatbubbles' },
-      { title: 'Devocionais', component: DevocionaisPage.name, icon: 'book' }
+      { title: 'Devocionais', component: DevocionaisPage.name, icon: 'book' },
+      { title: 'Sobre a IPM', component: SobrePage.name, icon: 'information-circle' }
     ];
 
   }
