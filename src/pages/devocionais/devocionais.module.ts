@@ -1,7 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { DevocionaisPage } from './devocionais';
-import {ParallaxLayout1Module} from '../../components/parallax/layout-1/parallax-layout-1.module';
+import { GoogleCardLayout2Module } from '../../components/list-view/google-card/layout-2/google-card-layout-2.module';
+
 
 
 @NgModule({
@@ -10,7 +11,7 @@ import {ParallaxLayout1Module} from '../../components/parallax/layout-1/parallax
   ],
   imports: [
     IonicPageModule.forChild(DevocionaisPage),
-    ParallaxLayout1Module 
+    GoogleCardLayout2Module 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

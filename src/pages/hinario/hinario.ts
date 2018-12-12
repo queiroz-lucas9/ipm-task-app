@@ -50,9 +50,9 @@ export class HinarioPage {
         (ref: CollectionReference) => ref
           .orderBy(texto, 'asc')
           .startAt(q)
-          .endAt(q + '\uf8ff'));
+          .endAt(q + '\uf8ff')
+          );
       this.hinos$ = this.hinosCollection.valueChanges();
-      console.log(q);
     } else {
       this.getAllHinos();
     }

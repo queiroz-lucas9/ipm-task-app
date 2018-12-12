@@ -3,11 +3,17 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Devocionais</ion-title>
+    <ion-title>Boletim</ion-title>
   </ion-navbar>
 </ion-header>
 
-  <ion-content elastic-header>
+<!-- <ion-content>
+    <google-card-layout-2
+    [data]="params.data"
+    [events]="params.events">
+    </google-card-layout-2>
+  </ion-content> -->
+  <!-- <ion-content elastic-header> -->
     <!-- <div background-size id="elastic-header" [ngStyle]="{'background-image': 'url(assets/images/background-small/pray.jpg)'}">
       <div parallax-header>
         <h2 no-margin parallax-subtitle>Devocionais</h2>
@@ -15,25 +21,51 @@
       </div>
     </div> -->
     <!--Content-->
-    <ion-grid no-padding>
+    <!-- <ion-grid no-padding>
       <ion-row>
         <ion-col col-12>
           <ion-list no-margin>
-            <ion-item item-bcg border no-lines *ngFor="let d of devocionais$ | async" (click)="presentModal(d)">
+            <ion-item item-bcg border no-lines *ngFor="let d of devocionais$ | async" (click)="presentModal(d)"> -->
               <!--Content Avatar-->
-              <ion-thumbnail item-start>
+              <!-- <ion-thumbnail item-start>
                 <img [src]="d.img" alt="{{d.img}}">
-              </ion-thumbnail>
+              </ion-thumbnail> -->
               <!--Content Title-->
-              <h2 no-margin item-title>{{d.titulo}}</h2>
+              <!-- <h2 no-margin item-title>{{d.titulo}}</h2> -->
               <!--Content Subtitle-->
-              <h3 item-subtitle text-wrap>{{d.descricao | slice:0:95}}...</h3>
+              <!-- <h3 item-subtitle text-wrap>{{d.descricao | slice:0:95}}...</h3> -->
               <!--Content Badge-->
               <!-- <ion-badge badge-light item-end>Mais</ion-badge> -->
-            </ion-item>
+            <!-- </ion-item>
           </ion-list>
         </ion-col>
       </ion-row>
     </ion-grid>
-  </ion-content>
+  </ion-content> -->
   
+  <ion-content>
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col col-12 col-lg-4 *ngFor="let d of devocionais$ | async">
+          <ion-card text-left (click)="presentModal(d)">
+
+            <div card-image>
+              <img [src]="d.img" />
+              <!--<ion-badge ion-fixed item-end class="badge-dark">Continue lendo</ion-badge>
+               <button ion-fixed ion-button button-action-shit (click)="onEvent('onShare', '', $event)">
+                 <ion-icon name="share"></ion-icon>
+              </button> -->
+            </div>
+            <ion-card-content>
+              <ion-card-title>
+                <h2 card-title>{{d.titulo}}</h2>
+                <h1 card-subtitle>{{d.autor}} | {{d.data.toDate() | date: 'dd/MM HH:mm'}}</h1>
+                <p card-body-text align="justify">{{d.descricao | slice:0:200}}...</p>
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    </ion-content>
+    

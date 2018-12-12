@@ -1,23 +1,25 @@
-<ion-menu [content]="content">
-  <ion-header header-ios>
-    <ion-toolbar>
-      <ion-title>MENU</ion-title>
-      <!-- <ion-title no-lines background-size> 
-        <img src="../assets/imgs/church.JPG">
-      </ion-title> -->
-    </ion-toolbar>
-  </ion-header>
 
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        <ion-icon [name]="p.icon" item-left></ion-icon>
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
+  <!-- Menu Main Top -->
+  <ion-menu [content]="content">
+      <ion-header>
+          <div header-background-image padding [ngStyle]="{'background-image': 'url(../assets/imgs/church.JPG)'}">
+              <img src="../assets/imgs/logo ipm.png">
+              <h2 ion-text header-title>IP Mauá</h2>
+              <p>Esta igreja crê na Bíblia, está empenhada em viver os seus ensinos e a proclamar as verdades da Palavra de Deus! </p>
+          </div>
+      </ion-header>
+      <!-- Menu Main List -->
 
-</ion-menu>
+      <ion-content>
+        <ion-list no-margin>
+          <button menuClose ion-item item-title main-menu no-lines border *ngFor="let p of pages" (click)="openPage(p)">
+            <ion-icon [name]="p.icon" item-left></ion-icon>
+            {{p.title}}
+          </button>
+        </ion-list>
+      </ion-content>
 
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+  </ion-menu>
+
+  <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

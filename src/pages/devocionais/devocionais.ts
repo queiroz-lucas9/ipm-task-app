@@ -26,7 +26,7 @@ export class DevocionaisPage {
     public navParams: NavParams,
     private db: AngularFirestore,
     private _loadingCtrl: LoadingController
-  ) { }
+  ) {}
 
   ionViewDidEnter() {
     this.getAllDevocionais();

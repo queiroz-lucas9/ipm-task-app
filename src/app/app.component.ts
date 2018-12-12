@@ -32,14 +32,14 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage, icon: 'home' },
-      { title: 'Boletim', component: BoletimPage.name, icon: 'paper' },
+      { title: 'Boletim', component: DevocionaisPage.name, icon: 'paper' },
       //{ title: 'Bíblia', component: BibliaPage.name, icon: 'book' },
       { title: 'Hinário', component: HinarioPage.name, icon: 'musical-notes' },
       { title: 'Cancioneiro', component: CancioneiroPage.name, icon: 'musical-note' },
       { title: 'Eventos', component: EventosPage.name, icon: 'calendar' },
       { title: 'Pedidos de oração', component: PedidosPage.name, icon: 'chatbubbles' },
-      { title: 'Devocionais', component: DevocionaisPage.name, icon: 'book' },
-      { title: 'Sobre a IPM', component: SobrePage.name, icon: 'information-circle' }
+      //{ title: 'Devocionais', component: DevocionaisPage.name, icon: 'book' },
+      { title: 'Sobre a IP Mauá', component: SobrePage.name, icon: 'information-circle' }
     ];
 
   }

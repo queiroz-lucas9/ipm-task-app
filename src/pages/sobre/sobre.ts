@@ -12,7 +12,7 @@ export class SobrePage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.params.data = {
-      "contentDescription" : "Esta igreja crê na Bíblia, está empenhada em viver os seus ensinos e a proclamar as verdades da Palavra de Deus!",
+      "contentDescription" : "\"Esta igreja crê na Bíblia, está empenhada em viver os seus ensinos e a proclamar as verdades da Palavra de Deus!\" Esse é o nosso lema. Fazemos parte da Igreja Presbiteriana do Brasil, uma igreja reformada e centrada nas Escrituras Sagradas (a Bíblia). Aqui você encontrará pecadores redimidos pela Graça de Deus, mediante a fé em Jesus Cristo, nosso Senhor e Salvador. Lutamos por viver para a Glória de Deus e por ser uma comunidade bíblica, reformada, missionária, socialmente engajada e acolhedora. Somos uma verdadeira família!",
       "contentDescription1" : "Sola Scriptura – Solus Christus – Sola Gratia – Sola Fide – Soli Deo Gloria",
       "contentTitle" : "Venha nos fazer uma visita! Ficaremos honrados com sua presença.",
       "email" : "revcid@gmail.com",
