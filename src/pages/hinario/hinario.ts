@@ -37,12 +37,12 @@ export class HinarioPage {
   }
 
   search(event) {
-    var q = event.target.value.toString();
+    var q = event.target.value.toString().toLowerCase();
 
     if (!isNaN(q)) {
       var texto = 'numero';
     } else {
-      texto = 'titulo';
+      texto = 'titulo_lowercase';
     }
 
     if (q != '') {
@@ -53,6 +53,7 @@ export class HinarioPage {
           .endAt(q + '\uf8ff')
           );
       this.hinos$ = this.hinosCollection.valueChanges();
+      console.log(q);
     } else {
       this.getAllHinos();
     }
@@ -70,7 +71,7 @@ export class HinarioPage {
 
     this.hinosCollection = this.db.collection<Hino>('/hinos',
       (ref: CollectionReference) => ref
-        .orderBy('numero', 'asc')
+        .orderBy('indice', 'asc')
         .orderBy('titulo', 'asc'));
 
     this.hinos$ = this.hinosCollection.valueChanges();
