@@ -15,6 +15,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestore';
 import { Calendar } from '@ionic-native/calendar';
+import { LaunchNavigator } from '@ionic-native/launch-navigator';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { Calendar } from '@ionic-native/calendar';
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     PopoverComponent,
-    Calendar
+    Calendar,
+    LaunchNavigator
   ]
 })
 export class AppModule { }

@@ -9,30 +9,27 @@
 
 
 <ion-content>
+  <ion-list>
+    <ion-list-header>
+      <h2><ion-icon name="calendar"></ion-icon> Dezembro</h2>
+    </ion-list-header>
+      <ion-item *ngFor="let ev of eventos$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <!--<h1><ion-icon name="calendar"></ion-icon> {{ data | date: 'dd/M/y' }}</h1>-->
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <!-- <p>{{ ev.data.toDate() | date: 'EEEE' }}</p> -->
+          <p style="text-align:center"><ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}</p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3><ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}</h3>
+        <p><ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}</p>
 
-  <ion-list-header>
-    <h2><ion-icon name="calendar"></ion-icon> Dezembro</h2>
-</ion-list-header>
-<ion-item *ngFor="let ev of eventos$ | async">
-  <ion-avatar item-start>
-    <!--<h1><ion-icon name="calendar"></ion-icon> {{ data | date: 'dd/M/y' }}</h1>-->
-     <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
-     <!-- <p>{{ ev.data.toDate() | date: 'EEEE' }}</p> -->
-     <p style="text-align:center"><ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}</p>
-  </ion-avatar>
-  <h1> {{ ev.titulo }}</h1>
-  <h3><ion-icon name="paper"></ion-icon> Detalhes: {{ ev.descricao }}</h3>
-  <p><ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}</p>
-
-  <button ion-button icon-start (click)="addEvent(ev.titulo, ev.localizacao, ev.descricao, ev.data.toDate())" *ngIf="showBut">
-    <ion-icon name="calendar"></ion-icon>
-    Adicionar ao calendário
-  </button>
-
-  <!-- <p *ngIf="!showBut">Evento já adicionado ao seu calendário</p>
-  <button ion-button icon-start (click)="addEvent(ev.titulo, ev.localizacao, ev.descricao, ev.data.toDate())" *ngIf="showBut">
-      <ion-icon name="calendar"></ion-icon>
-      Adicionar ao calendário
-  </button> -->
-</ion-item>
+        
+        <!-- <p *ngIf="!showBut">Evento já adicionado ao seu calendário</p>
+        <button ion-button icon-start (click)="addEvent(ev.titulo, ev.localizacao, ev.descricao, ev.data.toDate())" *ngIf="showBut">
+            <ion-icon name="calendar"></ion-icon>
+            Adicionar ao calendário
+        </button> -->
+      </ion-item>
+  </ion-list>
 </ion-content>
