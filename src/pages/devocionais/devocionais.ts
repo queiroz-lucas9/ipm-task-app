@@ -3,7 +3,7 @@ import { IonicPage, LoadingController, NavController, NavParams } from 'ionic-an
 
 import { Devocional } from '../../model/devocional.model';
 
-import {DevocionalInteiroPage} from './devocional-inteiro/devocional-inteiro';
+import { DevocionalInteiroPage } from './devocional-inteiro/devocional-inteiro';
 
 import { Observable } from 'rxjs/Observable';
 import { take } from 'rxjs/operators';
@@ -26,17 +26,13 @@ export class DevocionaisPage {
     public navParams: NavParams,
     private db: AngularFirestore,
     private _loadingCtrl: LoadingController
-  ) {}
-
-  ionViewDidEnter() {
-    this.getAllDevocionais();
-  }
+  ) { this.getAllDevocionais(); }
 
   isClassActive() {
     return this.active;
   }
 
-  getAllDevocionais(){
+  getAllDevocionais() {
     let loading = this._loadingCtrl
       .create({
         content: 'Carregando Devocionais...'

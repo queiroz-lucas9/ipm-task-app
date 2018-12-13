@@ -76,7 +76,16 @@ export class EventosDetalhesPage {
 
   startNavigation(localizacao: string){
     let options: LaunchNavigatorOptions = {
-      start: this.start
+      start: this.start,      
+      appSelection: {dialogHeaderText: 'Selecione um aplicativo na lista abaixo',
+      cancelButtonText: 'Cancelar',
+      rememberChoice: {
+        prompt: {
+          headerText: 'Deseja relembrar sua escolha?',
+          bodyText: 'Utilizar o mesmo app para navegação da próxima vez?',
+          yesButtonText: 'Sim',
+          noButtonText: 'Não',
+      }}}
     };
 
     this.launchNavigator.navigate(localizacao, options);

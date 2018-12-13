@@ -31,17 +31,18 @@
               <h1 ion-text register-title text-wrap>{{evento.titulo}}</h1>
           </ion-col>
           <ion-col form col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
-              <h2>{{ evento.descricao }}</h2><br />
+              <h2>{{ evento.descricao }}</h2>
               <p>Data: {{ evento.data.toDate() | date: 'dd/MM/yy' }}</p>
               <p>Horário: {{ evento.data.toDate() | date: 'HH:mm' }}</p>
               <p>Local: {{ evento.localizacao }}</p>
+              <p>Endereço: {{ evento.endereco }}</p>
 
               <button ion-button icon-start (click)="addEvent(evento.titulo, evento.localizacao, evento.descricao, evento.data.toDate())">
                   <ion-icon name="calendar"></ion-icon>
                   Adicionar ao calendário
                 </button><br />
               
-                <button ion-button icon-start (click)="startNavigation(evento.localizacao)">
+                <button ion-button icon-start (click)="startNavigation(evento.endereco)">
                   <ion-icon name="navigate"></ion-icon>
                   Iniciar navegação
                 </button>

@@ -21,8 +21,15 @@ export class EventosPage {
   eventosCollection: AngularFirestoreCollection<Evento>;
   eventos$: Observable<Evento[]>;
 
-  dataIni : Date;
-  dataFim : Date;
+  // eventosDezCollection: AngularFirestoreCollection<Evento>;
+  // eventosDez$: Observable<Evento[]>;
+
+  // eventosJanCollection: AngularFirestoreCollection<Evento>;
+  // eventosJan$: Observable<Evento[]>;
+
+
+  dataIni: Date;
+  dataFim: Date;
 
 
   constructor(
@@ -30,13 +37,11 @@ export class EventosPage {
     public navParams: NavParams,
     private db: AngularFirestore,
     private _loadingCtrl: LoadingController,
-  ) {}
-
-  ionViewDidEnter() {
+  ) {
     this.getAllEventos();
   }
 
-  getAllEventos(){
+  getAllEventos() {
     let loading = this._loadingCtrl
       .create({
         content: 'Carregando Eventos...'
@@ -46,15 +51,52 @@ export class EventosPage {
       loading.present();
     }
 
+    let start = new Date('2018-12-01');
+    let end = new Date('2018-12-31');
+
     this.eventosCollection = this.db.collection<Evento>('/eventos',
       (ref: CollectionReference) => ref
+        //.where('data', '>=', start).where('data','<=',end)
         .orderBy('data', 'asc')
         .orderBy('titulo', 'asc'));
 
     this.eventos$ = this.eventosCollection.valueChanges();
     this.eventos$.pipe(take(1))
       .subscribe(() => { loading.dismiss() });
+
+    // this.getDezEventos();
+    // this.getJanEventos();
   }
+
+  // getDezEventos(){
+
+  //   let start = new Date('2018-12-01');
+  //   let end = new Date('2018-12-31');
+
+  //   this.eventosDezCollection = this.db.collection<Evento>('/eventos',
+  //     (ref: CollectionReference) => ref
+  //       .where('data', '>=', start).where('data','<=',end)
+  //       .orderBy('data', 'asc')
+  //       .orderBy('titulo', 'asc'));
+
+  //   this.eventosDez$ = this.eventosDezCollection.valueChanges();
+  //   this.eventosDez$.pipe(take(1));
+  // }
+
+  // getJanEventos(){
+
+  //   let start = new Date('2019-01-01');
+  //   let end = new Date('2019-01-31');
+
+  //   this.eventosJanCollection = this.db.collection<Evento>('/eventos',
+  //     (ref: CollectionReference) => ref
+  //       .where('data', '>=', start).where('data','<=',end)
+  //       .orderBy('data', 'asc')
+  //       .orderBy('titulo', 'asc'));
+
+  //   this.eventosJan$ = this.eventosJanCollection.valueChanges();
+  //   this.eventosJan$.pipe(take(1));
+  // }
 
   presentModal(evento: Evento) {
     this.navCtrl.push(EventosDetalhesPage.name, {

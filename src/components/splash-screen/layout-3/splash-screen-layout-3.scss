@@ -21,8 +21,8 @@ splash-screen-layout-3 {
     animation-iteration-count: infinite;
     -webkit-animation-duration: 10s;
     animation-duration: 10s;
-    -webkit-animation-name: animationBackground;
-    animation-name: animationBackground;
+    // -webkit-animation-name: animationBackground;
+    // animation-name: animationBackground;
   }
   //Animation splash-screen
   @keyframes animationBackground {
@@ -80,7 +80,7 @@ splash-screen-layout-3 {
     color: #fff;
     position: absolute;
     opacity: 0;
-    width: 200px;
+    width: 210px;
     -webkit-animation: animationTitle 1.2s;
     /* Safari 4.0 - 8.0 */
     -webkit-animation-fill-mode: forwards;

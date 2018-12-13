@@ -37,9 +37,9 @@ export class CancioneiroPage {
     private db: AngularFirestore,
     private _loadingCtrl: LoadingController,
     private _alertCtrl: AlertController
-  ) { }
+  ) { this.getAllCanticos() }
 
-  ionViewWillEnter() {
+  getAllCanticos(){
     let loading = this._loadingCtrl.create({
       content: 'Carregando Cânticos...'
     });

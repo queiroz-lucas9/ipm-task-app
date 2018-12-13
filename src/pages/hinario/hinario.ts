@@ -19,22 +19,14 @@ export class HinarioPage {
 
   hinosCollection: AngularFirestoreCollection<Hino>;
   hinos$: Observable<Hino[]>;
-
-  startAt = new Subject();
-  endAt = new Subject();
-
-
+  
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private db: AngularFirestore,
     private _loadingCtrl: LoadingController,
 
-  ) { }
-
-  ionViewDidEnter() {
-    this.getAllHinos();
-  }
+  ) { this.getAllHinos(); }
 
   search(event) {
     var q = event.target.value.toString().toLowerCase();
@@ -51,7 +43,7 @@ export class HinarioPage {
           .orderBy(texto, 'asc')
           .startAt(q)
           .endAt(q + '\uf8ff')
-          );
+      );
       this.hinos$ = this.hinosCollection.valueChanges();
       console.log(q);
     } else {
