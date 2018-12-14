@@ -40,8 +40,7 @@ export class MyApp {
       { title: 'Eventos', component: EventosPage.name, icon: 'calendar' },
       { title: 'Pedidos de oração', component: PedidosPage.name, icon: 'chatbubbles' },
       //{ title: 'Devocionais', component: DevocionaisPage.name, icon: 'book' },
-      { title: 'Sobre a IP Mauá', component: SobrePage.name, icon: 'information-circle' },
-      { title: 'Splash', component: SplashPage.name, icon: 'information-circle' }
+      { title: 'Sobre a IP Mauá', component: SobrePage.name, icon: 'information-circle' }
     ];
 
   }

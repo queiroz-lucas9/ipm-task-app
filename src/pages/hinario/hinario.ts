@@ -19,7 +19,7 @@ export class HinarioPage {
 
   hinosCollection: AngularFirestoreCollection<Hino>;
   hinos$: Observable<Hino[]>;
-  
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -29,23 +29,27 @@ export class HinarioPage {
   ) { this.getAllHinos(); }
 
   search(event) {
-    var q = event.target.value.toString().toLowerCase();
+    if (event.target.value != null) {
+      var q = event.target.value.toString().toLowerCase();
 
-    if (!isNaN(q)) {
-      var texto = 'numero';
-    } else {
-      texto = 'titulo_lowercase';
-    }
+      if (!isNaN(q)) {
+        var texto = 'numero';
+      } else {
+        texto = 'titulo_lowercase';
+      }
 
-    if (q != '') {
-      this.hinosCollection = this.db.collection<Hino>('/hinos',
-        (ref: CollectionReference) => ref
-          .orderBy(texto, 'asc')
-          .startAt(q)
-          .endAt(q + '\uf8ff')
-      );
-      this.hinos$ = this.hinosCollection.valueChanges();
-      console.log(q);
+      if (q != '') {
+        this.hinosCollection = this.db.collection<Hino>('/hinos',
+          (ref: CollectionReference) => ref
+            .orderBy(texto, 'asc')            
+            .startAt(q)
+            .endAt(q + '\uf8ff')
+            
+        );
+        this.hinos$ = this.hinosCollection.valueChanges();
+      } else {
+        this.getAllHinos();
+      }
     } else {
       this.getAllHinos();
     }
