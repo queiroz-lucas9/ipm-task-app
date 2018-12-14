@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the SplashPage page.
@@ -23,6 +24,10 @@ export class SplashPage {
       "logo": '../assets/images/logo/LOGO_IPM.png',
       "title": "Igreja Presbiteriana de Mauá"
     };
+  }
+
+  ionViewDidLoad(){
+    setTimeout(() => this.navCtrl.setRoot(HomePage), 5000);
   }
 
 }

@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 
-import { BoletimPage } from '../pages/boletim/boletim';
+//import { BoletimPage } from '../pages/boletim/boletim';
 import { HinarioPage } from '../pages/hinario/hinario';
 import { CancioneiroPage } from '../pages/cancioneiro/cancioneiro';
 import { EventosPage } from '../pages/eventos/eventos';
@@ -20,7 +20,7 @@ import { SplashPage } from '../pages/splash/splash';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = SplashPage.name;
 
   pages: Array<{title: string, component: any, icon: string}>;
 
@@ -51,7 +51,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
-      this.splashScreen.hide();
+      //this.splashScreen.hide();
     });
   }
 

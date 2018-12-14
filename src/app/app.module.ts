@@ -7,8 +7,6 @@ import { MyApp } from './app.component';
 import { PopoverComponent } from '../components/popover/popover';
 import { environment } from '../environments/environment';
 
-import { HomePage } from '../pages/home/home';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -16,6 +14,8 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestore';
 import { Calendar } from '@ionic-native/calendar';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
+// import { SplashPage } from '../pages/splash/splash';
+import { HomePage } from '../pages/home/home';
 
 
 @NgModule({
