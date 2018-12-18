@@ -10,16 +10,15 @@
 
 <ion-content>
   <ion-list>
+    <!-- DEZEMBRO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Dezembro
       </h2>
     </ion-list-header>
-    <ion-item *ngFor="let ev of eventos$ | async" (click)="presentModal(ev)">
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosDez$ | async" (click)="presentModal(ev)">
       <ion-avatar item-start>
-        <!--<h1><ion-icon name="calendar"></ion-icon> {{ data | date: 'dd/M/y' }}</h1>-->
         <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
-        <!-- <p>{{ ev.data.toDate() | date: 'EEEE' }}</p> -->
         <p style="text-align:center">
           <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
         </p>
@@ -33,71 +32,247 @@
       </p>
     </ion-item>
 
+    <!-- JANEIRO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Janeiro
       </h2>
     </ion-list-header>
-    
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosJan$$ | async" (click)="presentModal(ev)">
+      <ion-avatar item-start>
+        <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+        <p style="text-align:center">
+          <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+        </p>
+      </ion-avatar>
+      <h1> {{ ev.titulo }}</h1>
+      <h3>
+        <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+      </h3>
+      <p>
+        <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+      </p>
+    </ion-item>
+
+    <!-- FEVEREIRO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Fevereiro
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosFev$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
+    <!-- MARÇO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Março
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosMar$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
+    <!-- ABRIL -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Abril
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosAbr$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
+    <!-- MAIO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Maio
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosMai$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
+    <!-- JUNHO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Junho
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosJun$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
+    <!-- JULHO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Julho
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosJul$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
+    <!-- AGOSTO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Agosto
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosAgo$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
+    <!-- SETEMBRO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Setembro
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosSet$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
+    <!-- OUTUBRO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Outubro
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosOut$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
+    <!-- NOVEMBRO -->
     <ion-list-header>
       <h2>
         <ion-icon name="calendar"></ion-icon> Novembro
       </h2>
     </ion-list-header>
+    <ion-item [ngClass]="animateClass" *ngFor="let ev of eventosNov$$ | async" (click)="presentModal(ev)">
+        <ion-avatar item-start>
+          <h1 style="text-align:center">{{ ev.data.toDate() | date: 'dd/MM' }}</h1>
+          <p style="text-align:center">
+            <ion-icon name="time"></ion-icon> {{ ev.data.toDate() | date: 'HH:mm' }}
+          </p>
+        </ion-avatar>
+        <h1> {{ ev.titulo }}</h1>
+        <h3>
+          <ion-icon name="checkmark"></ion-icon> Detalhes: {{ ev.descricao }}
+        </h3>
+        <p>
+          <ion-icon name="pin"></ion-icon> Local: {{ ev.localizacao }}
+        </p>
+      </ion-item>
 
   </ion-list>
 </ion-content>

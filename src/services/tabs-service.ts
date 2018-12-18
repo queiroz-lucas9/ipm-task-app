@@ -9,7 +9,7 @@ import { ToastService } from './toast-service';
 @Injectable()
 export class TabsService implements IService {
 
-  constructor(public af: AngularFireDatabase, private loadingService: LoadingService, private toastCtrl: ToastService) { }
+  constructor(private loadingService: LoadingService, private toastCtrl: ToastService) { }
 
   getId = (): string => 'tabs';
 
@@ -698,20 +698,20 @@ export class TabsService implements IService {
     var that = this;
     that.loadingService.show();
     if (AppSettings.IS_FIREBASE_ENABLED) {
-        return new Observable(observer => {
-            this.af
-              .object('tab/' + item)
-                .valueChanges()
-                .subscribe(snapshot => {
-                    that.loadingService.hide();
-                    observer.next(snapshot);
-                    observer.complete();
-                }, err => {
-                    that.loadingService.hide();
-                    observer.error([]);
-                    observer.complete();
-                });
-        });
+        // return new Observable(observer => {
+        //     this.af
+        //       .object('tab/' + item)
+        //         .valueChanges()
+        //         .subscribe(snapshot => {
+        //             that.loadingService.hide();
+        //             observer.next(snapshot);
+        //             observer.complete();
+        //         }, err => {
+        //             that.loadingService.hide();
+        //             observer.error([]);
+        //             observer.complete();
+        //         });
+        // });
     } else {
         return new Observable(observer => {
             that.loadingService.hide();

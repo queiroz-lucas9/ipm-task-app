@@ -1,3 +1,8 @@
 page-eventos {
-
+    .fade-in-right-item {
+        -webkit-animation: fadeInRight 800ms;
+        -moz-animation: fadeInRight 800ms;
+        -o-animation: fadeInRight 800ms;
+        animation: fadeInRight 800ms;
+    }
 }

@@ -5,6 +5,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
 import { PopoverComponent } from '../components/popover/popover';
+import { LoadingService } from '../services/loading-service'
+import { ToastService } from '../services/toast-service';
 import { environment } from '../environments/environment';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -14,15 +16,19 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestore';
 import { Calendar } from '@ionic-native/calendar';
 import { LaunchNavigator } from '@ionic-native/launch-navigator';
-// import { SplashPage } from '../pages/splash/splash';
 import { HomePage } from '../pages/home/home';
-
+import {TabPage1} from '../pages/tab-page-1/tab-page-1';
+import {TabPage2} from '../pages/tab-page-2/tab-page-2';
+import {TabPage3} from '../pages/tab-page-3/tab-page-3';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    PopoverComponent
+    PopoverComponent,
+    TabPage1,
+    TabPage2,
+    TabPage3,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,10 @@ import { HomePage } from '../pages/home/home';
   entryComponents: [
     MyApp,
     HomePage,
-    PopoverComponent
+    PopoverComponent,
+    TabPage1,
+    TabPage2,
+    TabPage3
   ],
   providers: [
     StatusBar,
@@ -44,7 +53,9 @@ import { HomePage } from '../pages/home/home';
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     PopoverComponent,
     Calendar,
-    LaunchNavigator
+    LaunchNavigator,
+    LoadingService,
+    ToastService
   ]
 })
 export class AppModule { }
