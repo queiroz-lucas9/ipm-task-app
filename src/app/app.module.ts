@@ -10,7 +10,7 @@ import { ToastService } from '../services/toast-service';
 import { environment } from '../environments/environment';
 
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+//import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestore';
@@ -49,7 +49,7 @@ import {TabPage3} from '../pages/tab-page-3/tab-page-3';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    //SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     PopoverComponent,
     Calendar,

@@ -14,6 +14,29 @@
 </ion-header>
 
 
-<ion-content padding>
 
+<ion-content no-padding>
+  <div class="mdc-card--outlined">
+    <ion-card no-margin *ngFor="let pedido of pedidos$ | async">
+      <ion-item>
+        <h2 item-title text-capitalize>{{pedido.autor}}</h2>
+        <h3>{{pedido.data.toDate() | date: 'dd/MM/yy MM:ss'}}</h3>
+        <button item-end ion-button button-action-shit (click)="onEvent('onShare', element, $event)">
+          <ion-icon name="ios-more"></ion-icon>
+        </button>
+      </ion-item>
+      <ion-card-content>
+        <!--Content List Title -->
+        <!-- <h2 card-title margin-bottom>{{pedido.tipo}}</h2> -->
+        <!--Content List Subtitle -->
+        <p>{{pedido.descricao}}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-fab right bottom>
+    <button ion-fab color="light" (click)="adicionar()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>

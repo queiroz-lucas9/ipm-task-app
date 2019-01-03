@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+//import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
 
@@ -26,7 +26,7 @@ export class MyApp {
 
   constructor(public platform: Platform,
               public statusBar: StatusBar,
-              public splashScreen: SplashScreen
+              //public splashScreen: SplashScreen
               ) {
               this.initializeApp();
 
