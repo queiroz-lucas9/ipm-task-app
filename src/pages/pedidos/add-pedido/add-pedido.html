@@ -1,18 +1,36 @@
-<!--
-  Generated template for the AddPedidoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>AddPedido</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+  <ion-grid no-padding>
+    <ion-row center>
+      <!-- Big Images Header -->
+      <ion-col no-padding col-12 background-size [ngStyle]="{'background-image': 'url(../../../assets/imgs/pray.jpg)'}">
+        <!-- Header Title -->
+        <h1 ion-text register-title text-wrap>Adicionar novo pedido de oração</h1>
+      </ion-col>
+      <ion-col form col-12 col-sm-12 col-md-12 offset-lg-3 col-lg-6 offset-xl-3 col-xl-6>
+        <!--Form-->
+        <ion-item>
+          <!---Select Tipo-->
+          <ion-label stacked>Tipo</ion-label>
+          <ion-select [(ngModel)]="Tipo">
+            <ion-option value="pedido">Pedido</ion-option>
+            <ion-option value="agradecimento">Agradecimento</ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <!---Input Nome-->
+          <ion-label stacked>Nome</ion-label>
+          <ion-input required placeholder="Digite seu nome" type="text"
+            required [(ngModel)]="Nome"></ion-input>
+        </ion-item>
+        <ion-item>
+          <!---Input Texto-->
+          <ion-label stacked>Texto</ion-label>
+          <ion-input required placeholder="Digite aqui sobre o que você deseja receber orações" type="text" [(ngModel)]="texto"></ion-input>
+        </ion-item>
+        
+        <!---Register button-->
+        <button ion-button float-right clear button-clear text-capitalize (click)="onEvent('onRegister')">Adicionar</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

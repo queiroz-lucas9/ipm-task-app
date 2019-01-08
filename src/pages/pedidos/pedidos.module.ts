@@ -9,7 +9,7 @@ import { StickyListHeaderLayout3Module } from '../../components/list-view/sticky
   ],
   imports: [
     IonicPageModule.forChild(PedidosPage),
-    StickyListHeaderLayout3Module
+    StickyListHeaderLayout3Module,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [

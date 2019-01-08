@@ -48,6 +48,7 @@ export class PedidosPage {
   }
 
   adicionar() {
-    //this.navCtrl.push(AddPedidoPage);
+    this.navCtrl.push(AddPedidoPage.name);
   }
 }
+  
