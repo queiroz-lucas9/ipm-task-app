@@ -9,6 +9,7 @@ import { PopoverComponent } from '../../../components/popover/popover';
 import { Cantico } from '../../../model/cantico.model';
 
 
+
 @IonicPage()
 @Component({
   selector: 'page-modal-cancioneiro',

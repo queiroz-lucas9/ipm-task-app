@@ -12,7 +12,7 @@
 <ion-content>
   <ion-card #popoverContent padding class="popover-page">
     <ion-card-content #popoverText class="text-to-change">
-      <p>{{ hino.letra }}</p>
+      <div [innerHTML]="hino.letra | sanitized"></div>
     </ion-card-content>
   </ion-card>
 </ion-content>

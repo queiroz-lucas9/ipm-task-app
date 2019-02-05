@@ -45,7 +45,7 @@ import {TabPage3} from '../pages/tab-page-3/tab-page-3';
     PopoverComponent,
     TabPage1,
     TabPage2,
-    TabPage3
+    TabPage3,
   ],
   providers: [
     StatusBar,
