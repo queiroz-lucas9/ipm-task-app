@@ -20,24 +20,50 @@ export class AddPedidoPage {
   autor: string = "";
   descricao: string = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  private db: AngularFirestore, private _loadingCtrl: LoadingController, public toastCtrl: ToastController) {
+  private isNameValid: boolean = true;
+  private isTextValid: boolean = true;
+  private isTypeValid: boolean = true;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private db: AngularFirestore, private _loadingCtrl: LoadingController, public toastCtrl: ToastController) {
   }
 
-  gravaPedido(){
+  gravaPedido() {
 
-    const id = this.db.createId();
+    if (this.validaCampos()) {
+      const id = this.db.createId();
 
-    this.pedidosCollection = this.db.collection<Pedido>('/pedidos');
-    this.pedidosCollection.add({autor: this.autor, descricao: this.descricao, tipo: this.tipo, uid: id, data: new Date(), validado: false});
+      this.pedidosCollection = this.db.collection<Pedido>('/pedidos');
+      this.pedidosCollection.add({ autor: this.autor, descricao: this.descricao, tipo: this.tipo, uid: id, data: new Date(), validado: false });
 
-    const toast = this.toastCtrl.create({
-      message: 'Pedido de oração foi adicionado. Após a efetivação da aprovação ele será exibido na lista de pedidos.',
-      duration: 5000
-    });
-    toast.present();
-    
+      const toast = this.toastCtrl.create({
+        message: 'Pedido de oração foi adicionado. Após a efetivação da aprovação ele será exibido na lista de pedidos.',
+        duration: 5000
+      });
+      toast.present();
 
-    this.navCtrl.setRoot(PedidosPage.name);
+      this.navCtrl.setRoot(PedidosPage.name);
+    }
+
+  }
+
+  validaCampos() {
+    this.isNameValid = true;
+    this.isTextValid = true;
+    this.isTypeValid = true;
+
+    if (!this.isNameValid || this.autor.length == 0) {
+      this.isNameValid = false;
+    }
+
+    if (!this.isTextValid || this.descricao.length == 0) {
+      this.isTextValid = false;
+    }
+
+    if (!this.isTypeValid || this.tipo.length == 0) {
+      this.isTypeValid = false;
+    }
+
+    return this.isNameValid && this.isTextValid && this.isTypeValid;
   }
 
 }

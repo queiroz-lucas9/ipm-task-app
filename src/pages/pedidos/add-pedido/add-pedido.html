@@ -15,17 +15,20 @@
             <ion-option value="pedido">Pedido</ion-option>
             <ion-option value="agradecimento">Agradecimento</ion-option>
           </ion-select>
+          <ion-label error-field color="primary" no-margin *ngIf="!isTypeValid">Tipo não pode ser vazio</ion-label>
         </ion-item>
         <ion-item>
           <!---Input Nome-->
           <ion-label stacked>Nome</ion-label>
           <ion-input required placeholder="Digite seu nome" type="text"
             required [(ngModel)]="autor"></ion-input>
+          <ion-label error-field color="primary" no-margin *ngIf="!isNameValid">Nome não pode ser vazio</ion-label>
         </ion-item>
         <ion-item>
           <!---Input Texto-->
           <ion-label stacked>Texto</ion-label>
           <ion-input required placeholder="Digite aqui sobre o que você deseja receber orações" type="text" [(ngModel)]="descricao"></ion-input>
+          <ion-label error-field color="primary" no-margin *ngIf="!isTextValid">Texto não pode ser vazio</ion-label>
         </ion-item>
         
         <!---Register button-->
