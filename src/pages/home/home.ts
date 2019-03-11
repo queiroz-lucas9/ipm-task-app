@@ -12,7 +12,7 @@ import { TabPage3 } from '../tab-page-3/tab-page-3';
   <ion-tabs>
   <ion-tab tabIcon="water" tabTitle="A IPM" [root]="tab1"></ion-tab>
   <ion-tab tabIcon="leaf" tabTitle="História" [root]="tab2"></ion-tab>
-  <ion-tab tabIcon="flame" tabTitle="Conselho" [root]="tab3"></ion-tab>
+  <ion-tab tabIcon="flame" tabTitle="Liderança" [root]="tab3"></ion-tab>
   </ion-tabs>`
 })
 export class HomePage {

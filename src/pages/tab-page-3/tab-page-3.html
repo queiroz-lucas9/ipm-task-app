@@ -1,20 +1,36 @@
 <ion-header>
-        <ion-navbar color='primary'>
-            <button ion-button menuToggle>
-                <ion-icon name="menu"></ion-icon>
-            </button>
-            <ion-title>Home</ion-title>
-        </ion-navbar>
-    </ion-header>
+    <ion-navbar color='primary'>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Home</ion-title>
+    </ion-navbar>
+</ion-header>
 <ion-content>
-    <ion-list tabPage3 *ngIf="params != null">
-        <ion-item border no-lines *ngFor="let item of params.items; let i = index;" (click)="onItemClick(item)">
-            <ion-avatar item-start>
-                <img [src]="item.avatar" />
-            </ion-avatar>
-            <h2 item-title>{{item.title}}</h2>
-            <h3 item-subtitle text-wrap>{{item.subtitle}}</h3>
-            <ion-badge item-end class="badge-dark">{{item.follow}}</ion-badge>
+    <ion-list>
+        <ion-item-divider color="primary">Pastor</ion-item-divider>
+        <ion-item>
+            <h2>Rev. Ângelo Cid Esse Diniz</h2>
+            <p>Pastor titular da IPM desde 1970</p>
         </ion-item>
+
+        <ion-item-divider color="primary">Presbíteros</ion-item-divider>
+        <ion-item>Carlos A. S. Coiado</ion-item>
+        <ion-item>Jadilson de Aquino</ion-item>
+        <ion-item>Maurílio A. Santos</ion-item>
+
+        <ion-item-divider color="primary">Diáconos</ion-item-divider>
+        <ion-item>Adaías Nogueira Souza</ion-item>
+        <ion-item>Alexsandro S Ferreira</ion-item>
+        <ion-item>Bruno Marinho da Silva</ion-item>
+        <ion-item>Giliard Alves da Silva</ion-item>
+        <ion-item>Ivan Donizete Bertoni</ion-item>
+        <ion-item>João Araújo dos Santos Jr.</ion-item>
+        <ion-item>Jorge Alberto de Miranda</ion-item>
+        <ion-item>Lucas de Queiroz Moreira</ion-item>
+        <ion-item>Magno S Lopes</ion-item>
+        <ion-item>Milton J. dos Santos</ion-item>
+        <ion-item>Narciso de Souza Filho</ion-item>
+        <ion-item>Paulo Henrique de Freitas</ion-item>
     </ion-list>
 </ion-content>

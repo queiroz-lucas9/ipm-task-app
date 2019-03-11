@@ -17,12 +17,4 @@ export class TabPage3 {
       this.params = snapshot;
     });
   }
-
-  ngOnChanges(changes: { [propKey: string]: any }) {
-    this.params = changes['data'].currentValue;
-  }
-
-  onItemClick(item:any) {
-      this.toastCtrl.presentToast("Folow");
-  }
 }

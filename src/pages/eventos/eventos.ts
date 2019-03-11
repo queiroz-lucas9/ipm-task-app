@@ -82,9 +82,6 @@ export class EventosPage {
       loading.present();
     }
 
-    let start = new Date('2018-12-01');
-    let end = new Date('2018-12-31');
-
     this.eventosCollection = this.db.collection<Evento>('/eventos',
       (ref: CollectionReference) => ref
         .orderBy('data', 'asc')

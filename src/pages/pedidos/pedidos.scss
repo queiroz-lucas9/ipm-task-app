@@ -36,6 +36,7 @@ page-pedidos {
       ion-card {
         width: 100% !important;
         box-shadow: none !important;
+        $list-inset-ios-border-radius: 4px;
     
         ion-avatar {
           min-width: 48px !important;

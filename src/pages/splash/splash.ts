@@ -20,7 +20,7 @@ export class SplashPage {
   }
 
   ionViewDidLoad(){
-    setTimeout(() => this.navCtrl.setRoot(HomePage), 5000);
+    setTimeout(() => this.navCtrl.setRoot(HomePage), 3000);
   }
 
 }
