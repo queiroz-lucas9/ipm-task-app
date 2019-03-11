@@ -1,7 +1,7 @@
 # ipm-app
-############### APLICATIVO MOBILE DA IGREJA PRESBITERIANA DE MAUÁ ###################################
+APLICATIVO MOBILE DA IGREJA PRESBITERIANA DE MAUÁ
 
-################                   IONIC FRAMEWORK                 #################################
+IONIC FRAMEWORK       
 
 First, install Node.js. Then, install the latest Ionic command-line tools in your terminal. Follow the Android and iOS platform guides to install required tools for development.
 npm install -g ionic
