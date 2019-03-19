@@ -4,7 +4,7 @@ import { TabPage1 } from '../tab-page-1/tab-page-1';
 import { TabPage2 } from '../tab-page-2/tab-page-2';
 import { TabPage3 } from '../tab-page-3/tab-page-3';
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-home',
   //templateUrl: 'home.html',

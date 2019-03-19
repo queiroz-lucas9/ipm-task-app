@@ -24,7 +24,12 @@ export class AddPedidoPage {
   private isTextValid: boolean = true;
   private isTypeValid: boolean = true;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private db: AngularFirestore, private _loadingCtrl: LoadingController, public toastCtrl: ToastController) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private db: AngularFirestore, 
+    private _loadingCtrl: LoadingController, 
+    public toastCtrl: ToastController) {
   }
 
   gravaPedido() {
@@ -33,7 +38,13 @@ export class AddPedidoPage {
       const id = this.db.createId();
 
       this.pedidosCollection = this.db.collection<Pedido>('/pedidos');
-      this.pedidosCollection.add({ autor: this.autor, descricao: this.descricao, tipo: this.tipo, uid: id, data: new Date(), validado: false });
+      this.pedidosCollection.add({ 
+        autor: this.autor, 
+        descricao: this.descricao, 
+        tipo: this.tipo, 
+        uid: id, 
+        data: new Date(), 
+        validado: false });
 
       const toast = this.toastCtrl.create({
         message: 'Pedido de oração foi adicionado. Após a efetivação da aprovação ele será exibido na lista de pedidos.',

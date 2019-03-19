@@ -3,7 +3,7 @@ import { IonicPage } from 'ionic-angular';
 import { ToastService } from '../../services/toast-service';
 import { TabsService } from '../../services/tabs-service';
 
-@IonicPage()
+//@IonicPage()
 @Component({
   templateUrl: 'tab-page-3.html',
   providers: [TabsService, ToastService]

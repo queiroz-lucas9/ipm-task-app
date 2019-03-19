@@ -4,13 +4,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
-import { PopoverComponent } from '../components/popover/popover';
+//import { PopoverComponent } from '../components/popover/popover';
 import { LoadingService } from '../services/loading-service'
 import { ToastService } from '../services/toast-service';
 import { environment } from '../environments/environment';
 
 import { StatusBar } from '@ionic-native/status-bar';
 //import { SplashScreen } from '@ionic-native/splash-screen';
+import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from '../../node_modules/angularfire2/firestore';
@@ -25,7 +26,7 @@ import {TabPage3} from '../pages/tab-page-3/tab-page-3';
   declarations: [
     MyApp,
     HomePage,
-    PopoverComponent,
+    //PopoverComponent,
     TabPage1,
     TabPage2,
     TabPage3,
@@ -34,7 +35,7 @@ import {TabPage3} from '../pages/tab-page-3/tab-page-3';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
-
+    FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule.enablePersistence(),
   ],
@@ -42,7 +43,7 @@ import {TabPage3} from '../pages/tab-page-3/tab-page-3';
   entryComponents: [
     MyApp,
     HomePage,
-    PopoverComponent,
+    //PopoverComponent,
     TabPage1,
     TabPage2,
     TabPage3,
@@ -51,7 +52,7 @@ import {TabPage3} from '../pages/tab-page-3/tab-page-3';
     StatusBar,
     //SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    PopoverComponent,
+    //PopoverComponent,
     Calendar,
     LaunchNavigator,
     LoadingService,
